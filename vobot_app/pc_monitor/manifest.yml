@@ -1,0 +1,3 @@
+name: PC Monitor
+version: 1.0.0
+description: Shows which home computers are reachable, using status served by the DNS machine.

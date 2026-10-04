@@ -1,0 +1,16 @@
+[Unit]
+Description=Vobot PC Monitor (ping hosts, serve status JSON)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/vobot-monitor/pc_monitor_server.py
+Environment=PCMON_CONFIG=/opt/vobot-monitor/computers.json
+Environment=PCMON_PORT=8088
+Environment=PCMON_INTERVAL=30
+Restart=always
+RestartSec=5
+DynamicUser=yes
+
+[Install]
+WantedBy=multi-user.target

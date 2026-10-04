@@ -1,0 +1,40 @@
+{
+  "computers": [
+    {
+      "name": "tembo",
+      "target": "tembo.local",
+      "ip": "10.0.10.73",
+      "description": "Primary Desktop"
+    },
+    {
+      "name": "nahadoha",
+      "target": "nahadoha.local",
+      "ip": "10.0.10.103",
+      "description": "Dell OptiPlex 7050 Micro"
+    },
+    {
+      "name": "saa",
+      "target": "saa.local",
+      "ip": "10.0.10.54",
+      "description": "Asus Mini PC"
+    },
+    {
+      "name": "jahazi",
+      "target": "jahazi.local",
+      "ip": "10.0.10.227",
+      "description": "HP OMEN X Laptop"
+    },
+    {
+      "name": "jina",
+      "target": "127.0.0.1",
+      "ip": "10.0.10.12",
+      "description": "Raspberry Pi 4 (Pi-hole Host)"
+    },
+    {
+      "name": "tafuta",
+      "target": "tafuta.local",
+      "ip": "10.0.10.54",
+      "description": "MacBook Pro"
+    }
+  ]
+}
