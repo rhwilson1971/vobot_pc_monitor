@@ -13,6 +13,12 @@ Shows on a Vobot Mini Dock which of your home computers can be reached.
 - **`dns_host/`** is a small Python service that uses only the standard library. It reads `computers.json` and pings each host, trying the `target` hostname first and then the `ip`. It serves the results at `http://<dns-ip>:8088/status`.
 - **`vobot_app/pc_monitor/`** is a MicroPython/LVGL app for the dock. It reads that URL and shows the online count, which is green when every host is up and red when any is down. Hosts that are down are listed first.
 
+The list has fixed-width State, Name, and Description columns. Turn the encoder
+clockwise to scroll down or counter-clockwise to scroll up when more computers
+fit beyond the screen. The title, column headings, and update time stay visible.
+Refreshes preserve the scroll position; long names and descriptions end in an
+ellipsis within their columns.
+
 ## Configuring the computers
 
 Edit `computers.json`. On the DNS machine it lives at `/opt/vobot-monitor/computers.json`. The service reads the file again on every cycle, so you don't need to restart it.
@@ -27,7 +33,7 @@ Edit `computers.json`. On the DNS machine it lives at `/opt/vobot-monitor/comput
 
 | Field | Required | Notes |
 |---|---|---|
-| `name` | yes | Short label shown on the dock (keep it under 10 characters) |
+| `name` | yes | Short label shown on the dock; long names are truncated to fit |
 | `target` | no | Hostname to ping first, e.g. `host.local` |
 | `ip` | no | Fallback address. You need at least one of `target` or `ip` |
 | `description` | no | Shown next to the name |
@@ -73,5 +79,3 @@ You can change the settings through environment variables in the unit file: `PCM
 PCMON_CONFIG=computers.json PCMON_PORT=18088 PCMON_INTERVAL=5 python3 dns_host/pc_monitor_server.py
 curl localhost:18088/status
 ```
-
-`vobot_pc_monitor_and_push.py` is the old design, which pushed messages to the dock directly. It is kept only for reference.

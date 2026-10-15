@@ -7,7 +7,6 @@ Vobot PC Monitor has two parts that communicate over HTTP. See README.md for how
 - `dns_host/install.sh` and `vobot-pc-monitor.service`: deploy to `/opt/vobot-monitor` and run under systemd with `DynamicUser=yes`.
 - `dns_host/computers.json`: the template host list. `./computers.json` at the repo root is the user's working copy. Keep the two in sync.
 - `vobot_app/pc_monitor/`: the Mini Dock app. **MicroPython + LVGL 9.1**, not CPython.
-- `vobot_pc_monitor_and_push.py`: the old push-based design, kept for reference only. Don't extend it.
 
 ## Contract between the two parts (keep both sides in sync)
 `GET /status` (and `/`) returns:
